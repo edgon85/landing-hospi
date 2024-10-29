@@ -1,0 +1,99 @@
+---
+import DiagnosticIcon from '@/components/ui/icons/diagnostic.astro';
+import BuildingIcon from '@/components/ui/icons/building.astro';
+import DoctorIcon from '@/components/ui/icons/doctor.astro';
+---
+
+<section class="py-16 px-4 bg-white">
+  <div class="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+    {/* Columna izquierda */}
+    <div class="space-y-6">
+      <span class="text-picton-blue-400 text-lg md:text-2xl"
+        >Comprometidos con tu bienestar y salud integral</span
+      >
+
+      <h2
+        class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mr-0 md:mr-28"
+      >
+        Atención Médica Integral de Calidad
+      </h2>
+
+      <p class="text-gray-600 text-md mr-0 md:mr-28">
+        Contamos con instalaciones modernas y un equipo de especialistas
+        altamente calificados para brindarte una atención completa y
+        personalizada. Nos esforzamos por ofrecer servicios médicos adaptados a
+        tus necesidades, con la mejor tecnología y en un ambiente cómodo y
+        seguro.
+      </p>
+
+      <div class="space-y-8 mt-8">
+        {/* Servicio 1 */}
+        <div class="flex items-start gap-4">
+          <div class="">
+            <BuildingIcon class="w-10 h-10 text-picton-blue-500" />
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">
+              Atención Médica Especializada
+            </h3>
+            <p class="text-gray-600 mr-0 md:mr-28">
+              Nuestro equipo de especialistas en distintas áreas, está preparado
+              para ofrecerte diagnósticos y tratamientos de alta calidad, con
+              enfoque en tu recuperación.
+            </p>
+          </div>
+        </div>
+
+        {/* Servicio 2 */}
+        <div class="flex items-start gap-4">
+          <div class="">
+            <DiagnosticIcon class="w-10 h-10 text-picton-blue-500" />
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">
+              Centro de Diagnóstico Avanzado
+            </h3>
+            <p class="text-gray-600 mr-0 md:mr-28">
+              Contamos con tecnología de última generación para realizar
+              exámenes especializados que permiten un diagnóstico preciso y
+              rápido.
+            </p>
+          </div>
+        </div>
+
+        {/* Servicio 3 */}
+        <div class="flex items-start gap-4">
+          <div class="">
+            <DoctorIcon class="w-10 h-10 text-picton-blue-500" />
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">
+              Cirugías y Procedimientos Quirúrgicos
+            </h3>
+            <p class="text-gray-600 mr-0 md:mr-28">
+              Ofrecemos procedimientos quirúrgicos de alta calidad, tanto
+              ambulatorios como hospitalarios, realizados por un equipo
+              experimentado en quirófanos de última generación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha - Imágenes superpuestas -->
+    <div class="relative h-[300px] md:h-[600px] mt-8 md:mt-0">
+      <!-- Imagen de fondo - edificio -->
+      <img
+        src="/images/doctor-bg.jpg"
+        alt="Hospital building"
+        class="absolute right-0 top-0 w-full h-full object-cover object-center md:object-right"
+      />
+      <!-- Imagen superpuesta - doctor -->
+      <img
+        src="/images/doc.webp?w=1024&h=1024"
+        alt="Doctor"
+        class="absolute left-0 bottom-5 md:bottom-10 w-4/5 h-4/5 object-cover -translate-x-10 md:-translate-x-5 xl:-translate-x-24"
+      />
+    </div>
+  </div>
+</section>

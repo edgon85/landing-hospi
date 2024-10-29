@@ -1,0 +1,153 @@
+---
+import StethoscopeIcon from '@/components/ui/icons/stethoscope.astro';
+import DnaIcon from '@/components/ui/icons/dna.astro';
+import ScalpelIcon from '@/components/ui/icons/scalpel.astro';
+import BoneIcon from '@/components/ui/icons/bone.astro';
+import PregnancyIcon from '@/components/ui/icons/pregnancy.astro';
+import ChildIcon from '@/components/ui/icons/child.astro';
+import PatientIcon from '@/components/ui/icons/patient.astro';
+import PsychologyIcon from '@/components/ui/icons/psychology.astro';
+import PsychiatryIcon from '@/components/ui/icons/psychiatry.astro';
+import HospitalIcon from '@/components/ui/icons/hospital.astro';
+import DialisisIcon from '@/components/ui/icons/dialisis.astro';
+import BrainIcon from '@/components/ui/icons/brain.astro';
+import JointIcon from '@/components/ui/icons/joint.astro';
+import EarIcon from '@/components/ui/icons/ear.astro';
+import LaboratoryIcon from '@/components/ui/icons/laboratory.astro';
+import DentistIcon from '@/components/ui/icons/dentist.astro';
+
+const servicios = [
+  {
+    nombre: 'Medicina General',
+    icono: StethoscopeIcon,
+    descripcion:
+      'Consultas generales para el diagnóstico y tratamiento de enfermedades comunes.',
+  },
+  {
+    nombre: 'Medicina Interna',
+    icono: DnaIcon,
+    descripcion:
+      'Atención integral para adultos con enfermedades crónicas y complejas.',
+  },
+  {
+    nombre: 'Cirugía General',
+    icono: ScalpelIcon,
+    descripcion:
+      'Procedimientos quirúrgicos para tratar diversas afecciones médicas.',
+  },
+  {
+    nombre: 'Traumatología',
+    icono: BoneIcon,
+    descripcion:
+      'Tratamiento de lesiones y fracturas en huesos, músculos y articulaciones.',
+  },
+  {
+    nombre: 'Gineco-obstetricia',
+    icono: PregnancyIcon,
+    descripcion:
+      'Cuidado de la salud femenina, embarazo, y atención obstétrica.',
+  },
+  {
+    nombre: 'Pediatría',
+    icono: ChildIcon,
+    descripcion: 'Atención médica especializada para niños y adolescentes.',
+  },
+  {
+    nombre: 'Medicina Física',
+    icono: PatientIcon,
+    descripcion: 'Rehabilitación para mejorar la movilidad y calidad de vida.',
+  },
+  {
+    nombre: 'Psicología',
+    icono: PsychologyIcon,
+    descripcion:
+      'Apoyo psicológico para la salud mental y bienestar emocional.',
+  },
+  {
+    nombre: 'Psiquiatría',
+    icono: PsychiatryIcon,
+    descripcion: 'Evaluación y tratamiento de trastornos mentales complejos.',
+  },
+  {
+    nombre: 'Endoscopía - colonoscopía',
+    icono: HospitalIcon,
+    descripcion: 'Procedimientos de diagnóstico visual del sistema digestivo.',
+  },
+  {
+    nombre: 'Prostatectomía - cistoscopía',
+    icono: HospitalIcon,
+    descripcion:
+      'Procedimientos urológicos para diagnóstico y tratamiento de la próstata y vejiga.',
+  },
+  {
+    nombre: 'Broncoscopía',
+    icono: HospitalIcon,
+    descripcion:
+      'Exploración de las vías respiratorias para diagnóstico y tratamiento.',
+  },
+  {
+    nombre: 'Hemodiálisis',
+    icono: DialisisIcon,
+    descripcion: 'Tratamiento para personas con insuficiencia renal.',
+  },
+  {
+    nombre: 'Neurología - neurocirugía',
+    icono: BrainIcon,
+    descripcion:
+      'Diagnóstico y tratamiento de enfermedades del sistema nervioso.',
+  },
+  {
+    nombre: 'Reumatología',
+    icono: JointIcon,
+    descripcion:
+      'Tratamiento de enfermedades de las articulaciones y el tejido conectivo.',
+  },
+  {
+    nombre: 'Otorrinolaringología',
+    icono: EarIcon,
+    descripcion: 'Atención para afecciones de oído, nariz y garganta.',
+  },
+  {
+    nombre: 'Laboratorios',
+    icono: LaboratoryIcon,
+    descripcion:
+      'Análisis clínicos para diagnóstico y seguimiento de tratamientos.',
+  },
+  {
+    nombre: 'Odontología',
+    icono: DentistIcon,
+    descripcion:
+      'Cuidado de la salud bucal y tratamiento de enfermedades dentales.',
+  },
+];
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-base font-semibold text-picton-blue-400 uppercase">
+        Nuestros Servicios
+      </h2>
+      <p
+        class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+      >
+        Servicios Médicos Ofrecidos
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {
+        servicios.map((servicio) => (
+          <div class="p-6 bg-white rounded-lg shadow-md flex flex-col items-center">
+            <servicio.icono class="w-6 h-6 mb-4 text-picton-blue-500" />
+            <h3 class="text-sm md:text-xl font-semibold text-gray-800 text-center">
+              {servicio.nombre}
+            </h3>
+            <p class="text-gray-600 text-xs md:text-base mt-2 text-center">
+              {servicio.descripcion}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
