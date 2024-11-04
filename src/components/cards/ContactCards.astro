@@ -1,0 +1,44 @@
+---
+import PhoneIcon from '../ui/icons/phone.astro';
+import WhatsappIcon from '../ui/icons/whatsappIcon.astro';
+import MarkerIcon from '../ui/icons/markerIcon.astro';
+---
+
+<div class="absolute bottom-0 left-0 right-0 transform translate-y-1/2">
+  <div class="container mx-auto px-4">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-4 max-w-3xl mx-auto"
+    >
+      <!-- Tarjeta de teléfono -->
+      <a
+        href="tel:+50277672852"
+        class="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4 hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex-shrink-0 bg-blue-50 p-3 rounded-full">
+          <PhoneIcon class="w-6 h-6 text-picton-blue-500" />
+        </div>
+        <div>
+          <h3 class="text-gray-500 text-sm font-medium">Llámenos</h3>
+          <p class="text-picton-blue-500 font-medium">+502 7767-2852</p>
+        </div>
+      </a>
+
+      <!-- Tarjeta de ubicación -->
+      <a
+        target="_blank"
+        href="https://maps.app.goo.gl/s4bcCxPQ4fCh74He6"
+        class="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4 hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex-shrink-0 bg-blue-50 p-3 rounded-full">
+          <MarkerIcon class="w-6 h-6 text-picton-blue-500" />
+        </div>
+        <div>
+          <h3 class="text-gray-500 text-sm font-medium">Visitenos</h3>
+          <p class="text-picton-blue-500 font-medium">
+            25 Av. 10A-12 Zona 3, Quetzaltenango
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

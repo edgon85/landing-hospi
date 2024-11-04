@@ -15,6 +15,7 @@ import JointIcon from '@/components/ui/icons/joint.astro';
 import EarIcon from '@/components/ui/icons/ear.astro';
 import LaboratoryIcon from '@/components/ui/icons/laboratory.astro';
 import DentistIcon from '@/components/ui/icons/dentist.astro';
+import ChevronDown from '@/components/ui/icons/chevronDown.astro';
 
 const servicios = [
   {
@@ -120,34 +121,108 @@ const servicios = [
       'Cuidado de la salud bucal y tratamiento de enfermedades dentales.',
   },
 ];
+
+// Calculamos cuántos items mostrar inicialmente (2 filas)
+const itemsPorFila = 4;
+const filasIniciales = 2;
+const itemsIniciales = itemsPorFila * filasIniciales;
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
     <div class="text-center mb-12">
       <h2 class="text-base font-semibold text-teal-400 uppercase">
         Nuestros Servicios
       </h2>
       <p
-        class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+        class="mt-2 text-4xl leading-8 font- tracking-tight text-gray-900 sm:text-4xl"
       >
         Servicios Médicos Ofrecidos
       </p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      {
-        servicios.map((servicio) => (
-          <div class="p-6 bg-white rounded-lg shadow-md flex flex-col items-center">
-            <servicio.icono class="w-6 h-6 mb-4 text-picton-blue-500" />
-            <h3 class="text-sm md:text-xl font-semibold text-gray-800 text-center">
-              {servicio.nombre}
-            </h3>
-            <p class="text-gray-600 text-xs md:text-base mt-2 text-center">
-              {servicio.descripcion}
-            </p>
-          </div>
-        ))
-      }
+
+    <div class="relative">
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 services-grid"
+      >
+        {
+          servicios.map((servicio, index) => (
+            <div
+              class:list={[
+                'p-6 bg-white rounded-lg shadow-md flex flex-col items-center service-card transition-all duration-500 ease-in-out',
+                index >= itemsIniciales
+                  ? 'opacity-0 expandable absolute -z-10'
+                  : 'opacity-100',
+              ]}
+            >
+              <servicio.icono class="w-6 h-6 mb-4 text-picton-blue-500" />
+              <h3 class="text-sm md:text-xl font-semibold text-gray-800 text-center">
+                {servicio.nombre}
+              </h3>
+              <p class="text-gray-600 text-xs md:text-base mt-2 text-center">
+                {servicio.descripcion}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-4">
+        <button
+          id="toggleButton"
+          class="border border-teal-500 font-semibold py-2 px-6 rounded-lg transition-colors text-teal-500"
+        >
+          Ver más
+        </button>
+      </div>
     </div>
   </div>
+
+  <style>
+    .services-grid .expandable {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+    }
+
+    .services-grid.expanded .expandable {
+      opacity: 1;
+      position: relative !important;
+      z-index: 0 !important;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .service-card {
+      transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+    }
+  </style>
+
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const servicesGrid = document.querySelector(
+      '.services-grid'
+    ) as HTMLElement;
+
+    if (toggleButton && servicesGrid) {
+      toggleButton.addEventListener('click', () => {
+        servicesGrid.classList.toggle('expanded');
+
+        // Actualizar el texto del botón
+        toggleButton.textContent = servicesGrid.classList.contains('expanded')
+          ? 'Ver menos'
+          : 'Ver más';
+
+        // Ajustar el scroll si se está contrayendo
+        if (!servicesGrid.classList.contains('expanded')) {
+          window.scrollTo({
+            top: servicesGrid.offsetTop - 50,
+            behavior: 'smooth',
+          });
+        }
+      });
+    }
+  </script>
 </section>
